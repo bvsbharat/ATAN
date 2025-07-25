@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "canisters": {
+    "main": {
+      "type": "motoko",
+      "main": "src/main.mo"
+    },
+    "atan_backend": {
+      "main": "src/atan_backend/main.mo",
+      "type": "motoko"
+    },
+    "atan_frontend": {
+      "main": "src/atan_frontend/main.mo",
+      "type": "motoko",
+      "dependencies": [
+        "atan_backend"
+      ]
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:4943",
+      "type": "ephemeral"
+    },
+    "ic": {
+      "providers": ["https://ic0.app"],
+      "type": "persistent"
+    }
+  },
+  "output_env_file": ".env",
+  "dfx": "0.18.0"
+}
